@@ -1,4 +1,4 @@
-#MeteorD - Docker Runtime for Meteor Apps
+## MeteorD - Docker Runtime for Meteor Apps
 
 There are two ways you can build Meteor apps for Docker. They are:
 
@@ -7,7 +7,7 @@ There are two ways you can build Meteor apps for Docker. They are:
 
 MeteorD supports these two ways. Let's see how to do it.
 
-## 1. Docker image for each version of your app
+### 1. Docker image for each version of your app
 
 With this setup, you can use `meteorhacks/meteord` as your base image. You can simply add following Dockerfile into the root of your app to build a image for your app.
 
@@ -38,11 +38,11 @@ docker run -d \
 
 Then you can access your from the port 80 of the host.
 
-## 2. Running a Meteor bundle with MeteorD
+### 2. Running a Meteor bundle with MeteorD
 
 For this you can directly use the MeteorD to run your meteor bundle. MeteorD can accept your bundle either from the web or from a local mount. Let's see
 
-### 2.1 From a Local Mount
+#### 2.1 From a Local Mount
 
 ~~~shell
 docker run -d \
@@ -65,7 +65,7 @@ meteor build --architecture=os.linux.x86_64 ./
 
 Sometimes, you need to recompile binary modules. If so, expose `REBUILD_BINARY_MODULES` environment variable. If this is the case, it takes a few seconds for the compilations.
 
-### 2.1 From the Web
+#### 2.1 From the Web
 
 You can also simply give URL of the tarball with `BUNDLE_URL` environment variable. This is how to do it:
 
