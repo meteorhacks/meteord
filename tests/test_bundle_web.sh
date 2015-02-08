@@ -20,6 +20,6 @@ appContent=`curl http://localhost:9090`
 clean
 
 if [[ $appContent != *"web_app"* ]]; then
-  echo "Failed: Bundle local mount"
+  echo "Failed: Bundle web"
   exit 1
 fi
