@@ -1,0 +1,12 @@
+machine:
+  node:
+    version: 0.10.35
+
+dependencies:
+  override:
+    -  if [ ! -f $HOME/.meteor/meteor ]; then curl https://install.meteor.com | sh; fi
+
+test:
+  override:
+    - cd tests
+    - bash run_tests.sh
