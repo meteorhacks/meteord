@@ -7,7 +7,7 @@ function clean() {
 clean
 docker run  \
     --name phantomjs_check \
-    --entrypoint="/usr/bin/phantomjs -h" \
+    --entrypoint="/bin/bash" \
     meteord
 
 appContent=`docker logs phantomjs_check`
