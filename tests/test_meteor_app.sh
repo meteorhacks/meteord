@@ -26,6 +26,6 @@ appContent=`curl http://localhost:8080`
 clean
 
 if [[ $appContent != *"yourapp_dot_com"* ]]; then
-  echo "app-has-not-being-picked-up on port 8080"
+  echo "Failed: Meteor app"
   exit 1
 fi
