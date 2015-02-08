@@ -9,14 +9,11 @@ MeteorD supports these two ways. Let's see how to do it.
 
 ### 1. Docker image for each version of your app
 
-With this setup, you can use `meteorhacks/meteord` as your base image. You can simply add following Dockerfile into the root of your app to build a image for your app.
+With this setup, you can use `meteorhacks/meteord` as your base image. You can simply add following `Dockerfile` into the root of your app to build a image for your app.
 
 ~~~shell
 FROM meteorhacks/meteord
 MAINTAINER Your Name
-
-COPY ./ /app
-RUN meteord-build
 ~~~
 
 Then you can build the app with:
@@ -32,7 +29,7 @@ docker run -d \
     -e ROOT_URL=http://yourapp.com \
     -e MONGO_URL=mongodb://url \
     -e MONGO_OPLOG_URL=mongodb://oplog_url \
-    -p 80:3000 \
+    -p 80:80 \
     yourname/app 
 ~~~
 
