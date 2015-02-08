@@ -17,6 +17,12 @@ else
   cd /built_app
 fi
 
+if [[ $REBULD_NPM_MODULES ]]; then
+  cd programs/server
+  bash /opt/meteord/rebuild_npm_modules.sh
+  cd ../../
+fi
+
 export PORT=80
 echo "starting meteor app on port:$PORT"
 node main.js

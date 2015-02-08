@@ -57,11 +57,6 @@ With this, MeteorD expects your tar ball version of the bundle to be exists in `
 meteor build --architecture=os.linux.x86_64 ./
 ~~~
 
-
-**Rebuilding Binary Modules**
-
-Sometimes, you need to recompile binary modules. If so, expose `REBUILD_BINARY_MODULES` environment variable. If this is the case, it takes a few seconds for the compilations.
-
 #### 2.1 From the Web
 
 You can also simply give URL of the tarball with `BUNDLE_URL` environment variable. This is how to do it:
@@ -76,3 +71,18 @@ docker run -d \
     meteorhacks/meteord
 ~~~
 
+
+### Rebuilding Binary Modules
+
+Sometimes, you need to recompile binary modules. If so, expose `REBULD_NPM_MODULES` environment variable. If this is the case, it takes a few seconds for the compilations.
+
+~~~shell
+docker run -d \
+    -e ROOT_URL=http://yourapp.com \
+    -e MONGO_URL=mongodb://url \
+    -e MONGO_OPLOG_URL=mongodb://oplog_url \
+    -e BUNDLE_URL=http://mybundle_url_at_s3.tar.gz \
+    -e REBULD_NPM_MODULES=1 \
+    -p 80:3000 \
+    meteorhacks/meteord
+~~~
