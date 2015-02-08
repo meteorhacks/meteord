@@ -1,10 +1,14 @@
 machine:
   node:
     version: 0.10.35
+  services:
+    - docker
 
 dependencies:
   override:
     -  if [ ! -f $HOME/.meteor/meteor ]; then curl https://install.meteor.com | sh; fi
+  cache_directories:
+    - ../.meteor
 
 test:
   override:
