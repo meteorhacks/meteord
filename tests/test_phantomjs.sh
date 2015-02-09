@@ -8,7 +8,9 @@ clean
 docker run  \
     --name phantomjs_check \
     --entrypoint="/bin/bash" \
-    meteord
+    meteord -c 'phantomjs -h'
+
+sleep 5
 
 appContent=`docker logs phantomjs_check`
 clean
