@@ -7,7 +7,7 @@ machine:
 dependencies:
   override:
     - if [ ! -f $HOME/.meteor/meteor ]; then curl https://install.meteor.com | sh; fi
-    - ln -s $HOME/.meteor/meteor /usr/bin/meteor
+    - sudo ln -s $HOME/.meteor/meteor /usr/bin/meteor
   cache_directories:
     - ../.meteor
 
