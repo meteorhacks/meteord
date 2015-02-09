@@ -38,7 +38,7 @@ docker run -d \
     yourname/app 
 ~~~
 
-Then you can access your from the port 8080 of the host.
+Then you can access your app from the port 8080 of the host system.
 
 ### 2. Running a Meteor bundle with Docker
 
@@ -79,7 +79,7 @@ docker run -d \
 
 ### Rebuilding Binary Modules
 
-Sometimes, you need to rebuild binary npm modules. If so, expose `REBULD_NPM_MODULES` environment variable. It takes couple of seconds to complete the rebuilding process.
+Sometimes, you need to rebuild binary npm modules. If so, expose `REBULD_NPM_MODULES` environment variable. It will take couple of seconds to complete the rebuilding process.
 
 ~~~shell
 docker run -d \
