@@ -52,7 +52,7 @@ docker run -d \
     -e MONGO_URL=mongodb://url \
     -e MONGO_OPLOG_URL=mongodb://oplog_url \
     -v /mybundle_dir:/bundle \
-    -p 80:3000 \
+    -p 8080:80 \
     meteorhacks/meteord
 ~~~
 
@@ -72,7 +72,7 @@ docker run -d \
     -e MONGO_URL=mongodb://url \
     -e MONGO_OPLOG_URL=mongodb://oplog_url \
     -e BUNDLE_URL=http://mybundle_url_at_s3.tar.gz \
-    -p 80:3000 \
+    -p 8080:80 \
     meteorhacks/meteord
 ~~~
 
