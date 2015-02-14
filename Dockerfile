@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM debian
 MAINTAINER MeteorHacks Pvt Ltd.
 
 COPY scripts /opt/meteord

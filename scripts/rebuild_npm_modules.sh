@@ -3,7 +3,7 @@ gyp_rebuild_inside_node_modules () {
     cd $npmModule
     if [ -f binding.gyp ]; then
       echo "=> re-installing binary npm module '${npmModule:2}' of package '${package:2}'"
-      sudo node-gyp rebuild
+      node-gyp rebuild
     fi
 
     # recursively rebuild npm modules inside node_modules
