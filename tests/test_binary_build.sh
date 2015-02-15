@@ -7,7 +7,7 @@ function clean() {
 cd /tmp
 clean
 
-docker run -it \
+docker run -d \
     --name binary_build \
     -e ROOT_URL=http://binary_build_app \
     -e BUNDLE_URL=https://s3.amazonaws.com/zeema-data/aa.tar.gz \
