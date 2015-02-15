@@ -7,7 +7,7 @@ function clean() {
 cd /tmp
 clean
 
-docker run -d \
+docker run -it \
     --name binary_build \
     -e ROOT_URL=http://binary_build_app \
     -e BUNDLE_URL=https://s3.amazonaws.com/zeema-data/aa.tar.gz \
@@ -15,7 +15,8 @@ docker run -d \
     -p 9090:80 \
     meteord
 
-sleep 8
+echo "Waiting for binary building is happening"
+sleep 20
 
 appContent=`curl http://localhost:9090`
 clean
