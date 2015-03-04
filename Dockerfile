@@ -10,4 +10,5 @@ RUN bash /opt/meteord/install_phantomjs.sh
 ONBUILD COPY ./ /app
 ONBUILD RUN bash /opt/meteord/meteord-build.sh
 
+EXPOSE 80
 ENTRYPOINT bash /opt/meteord/run_app.sh
