@@ -88,6 +88,6 @@ docker run -d \
     -e MONGO_OPLOG_URL=mongodb://oplog_url \
     -e BUNDLE_URL=http://mybundle_url_at_s3.tar.gz \
     -e REBULD_NPM_MODULES=1 \
-    -p 80:3000 \
+    -p 8080:80 \
     meteorhacks/meteord
 ~~~
