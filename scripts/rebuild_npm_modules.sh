@@ -1,17 +1,40 @@
 gyp_rebuild_inside_node_modules () {
   for npmModule in ./*; do
     cd $npmModule
-    if [ -f binding.gyp ]; then
-      echo "=> re-installing binary npm module '${npmModule:2}' of package '${package:2}'"
-      node-gyp rebuild
+
+    isBinaryModule="no"
+    # recursively rebuild npm modules inside node_modules
+    check_for_binary_modules () {
+      if [ -f binding.gyp ]; then
+        isBinaryModule="yes"
+      fi
+
+      if [ $isBinaryModule != "yes" ]; then
+        if [ -d ./node_modules ]; then
+          cd ./node_modules
+          for module in ./*; do
+            cd $module
+            check_for_binary_modules
+            cd ..
+          done
+          cd ../
+        fi
+      fi
+    }
+
+    check_for_binary_modules
+
+    if [ $isBinaryModule == "yes" ]; then
+      echo " > $npmModule: npm install due to binary npm modules"
+      rm -rf node_modules
+      if [ -f binding.gyp ]; then
+        node-gyp rebuild || :
+        npm install
+      else
+        npm install
+      fi
     fi
 
-    # recursively rebuild npm modules inside node_modules
-    if [ -d ./node_modules ]; then
-      cd ./node_modules
-        gyp_rebuild_inside_node_modules
-      cd ../
-    fi
     cd ..
   done
 }
