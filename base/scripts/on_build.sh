@@ -1,4 +1,5 @@
 #!/bin/bash
+curl https://install.meteor.com | /bin/sh
 
 cd /app
 meteor build --directory /tmp/the-app --server=http://localhost:3000

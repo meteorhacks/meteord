@@ -1,11 +1,10 @@
-FROM debian
+FROM debian:wheezy
 MAINTAINER MeteorHacks Pvt Ltd.
 
-COPY scripts /opt/meteord
+ENV METEORD_DIR /opt/meteord
+COPY scripts $METEORD_DIR
 
-RUN bash /opt/meteord/install_base.sh
-RUN bash /opt/meteord/install_node.sh
-RUN bash /opt/meteord/install_phantomjs.sh
+RUN bash $METEORD_DIR/init.sh
 
 EXPOSE 80
-ENTRYPOINT bash /opt/meteord/run_app.sh
+ENTRYPOINT bash $METEORD_DIR/run_app.sh
