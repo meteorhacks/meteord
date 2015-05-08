@@ -17,7 +17,7 @@ For that, you can use `meteorhacks/meteord` as your base image. Magically, that'
 Add following `Dockerfile` into the root of your app:
 
 ~~~shell
-FROM meteorhacks/meteord:on-build
+FROM meteorhacks/meteord:onbuild
 ~~~
 
 Then you can build the docker image with:
@@ -36,6 +36,12 @@ docker run -d \
     -p 8080:80 \
     yourname/app 
 ~~~
+
+#### Stop downloading Meteor each and every time (mostly in development)
+
+So, with the above method, MeteorD will download and install Meteor each and every time. That's bad specially in development. So, we've a solution for that. Simply use `meteorhacks/meteord:devbuild` as your base image.
+
+> WARNING: Don't use `meteorhacks/meteord:devbuild` for your final build. If you used it, your image will carry the Meteor distribution as well. As a result of that, you'll end up with an image with ~700 MB.
 
 Then you can access your app from the port 8080 of the host system.
 
@@ -88,5 +94,5 @@ docker run -d \
     -e BUNDLE_URL=http://mybundle_url_at_s3.tar.gz \
     -e REBULD_NPM_MODULES=1 \
     -p 8080:80 \
-    meteorhacks/meteord:bin-build
+    meteorhacks/meteord:binbuild
 ~~~

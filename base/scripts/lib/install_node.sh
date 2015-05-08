@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -e
 NODE_VERSION=0.10.36
 NODE_ARCH=x64
 
