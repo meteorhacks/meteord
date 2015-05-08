@@ -13,8 +13,11 @@ elif [[ $BUNDLE_URL ]]; then
   cd /tmp/bundle/programs/server/
   npm i
   cd /tmp/bundle/
-else
+elif [ -d /built_app ]; then
   cd /built_app
+else
+  echo "=> You don't have an meteor app to run in this image."
+  exit 1
 fi
 
 if [[ $REBULD_NPM_MODULES ]]; then
@@ -23,11 +26,11 @@ if [[ $REBULD_NPM_MODULES ]]; then
     bash /opt/meteord/rebuild_npm_modules.sh
     cd ../../
   else
-    echo "use meteorhacks/meteord:bin-build for binary bulding."
+    echo "=> Use meteorhacks/meteord:bin-build for binary bulding."
     exit 1
   fi
 fi
 
 export PORT=80
-echo "starting meteor app on port:$PORT"
+echo "=> Starting meteor app on port:$PORT"
 node main.js

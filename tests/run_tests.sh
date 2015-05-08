@@ -10,3 +10,4 @@ bash ./test_bundle_web.sh
 bash ./test_binary_build_on_base.sh
 bash ./test_binary_build_on_bin_build.sh
 bash ./test_phantomjs.sh
+bash ./test_no_app.sh
