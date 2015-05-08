@@ -17,7 +17,7 @@ docker run -d \
     -e ROOT_URL=http://localmount_app \
     -v /tmp/localmount:/bundle \
     -p 9090:80 \
-    meteord
+    meteorhacks/meteord:base
 
 sleep 5
 
