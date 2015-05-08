@@ -11,7 +11,7 @@ clean
 
 meteor create hello
 cd hello
-echo FROM meteord >> Dockerfile
+echo FROM meteorhacks/meteord:on-build >> Dockerfile
 
 docker build -t meteor-app-image ./
 docker run -d \

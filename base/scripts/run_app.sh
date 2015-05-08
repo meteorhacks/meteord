@@ -18,9 +18,14 @@ else
 fi
 
 if [[ $REBULD_NPM_MODULES ]]; then
-  cd programs/server
-  bash /opt/meteord/rebuild_npm_modules.sh
-  cd ../../
+  if [ -f /opt/meteord/rebuild_npm_modules.sh ]; then
+    cd programs/server
+    bash /opt/meteord/rebuild_npm_modules.sh
+    cd ../../
+  else
+    echo "use meteorhacks/meteord:bin-build for binary bulding."
+    exit 1
+  fi
 fi
 
 export PORT=80

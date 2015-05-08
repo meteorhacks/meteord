@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd /app
-meteor build --directory /tmp/the-app --server=localhost
+meteor build --directory /tmp/the-app --server=http://localhost:3000
 
 cd /tmp/the-app/bundle/programs/server/
 npm i
