@@ -8,7 +8,7 @@ if [ -d /bundle ]; then
   cd /bundle/bundle/
 elif [[ $BUNDLE_URL ]]; then
   cd /tmp
-  wget $BUNDLE_URL -O bundle.tar.gz
+  curl -L -o bundle.tar.gz $BUNDLE_URL
   tar xzf bundle.tar.gz
   cd /tmp/bundle/programs/server/
   npm i
