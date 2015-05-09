@@ -81,7 +81,7 @@ docker run -d \
 ~~~
 
 
-### Rebuilding Binary Modules
+#### Rebuilding Binary Modules
 
 Sometimes, you need to rebuild binary npm modules. If so, expose `REBULD_NPM_MODULES` environment variable. It will take couple of seconds to complete the rebuilding process.
 
