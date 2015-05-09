@@ -12,7 +12,7 @@ There are two main ways you can use Docker with Meteor apps. They are:
 
 With this method, your app will be converted into a Docker image. Then you can simply run that image.  
 
-For that, you can use `meteorhacks/meteord` as your base image. Magically, that's only you've to do. Here's how to do it.
+For that, you can use `meteorhacks/meteord:onbuild` as your base image. Magically, that's only you've to do. Here's how to do it.
 
 Add following `Dockerfile` into the root of your app:
 
