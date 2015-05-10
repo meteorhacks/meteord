@@ -98,7 +98,7 @@ docker run -d \
 
 ## Known Issues
 
-### Spiderable Not Wokring (But, have a fix)
+#### Spiderable Not Wokring (But, have a fix)
 
 There are some issues when running spiderable inside a Docker container. For that, check this issue: https://github.com/meteor/meteor/issues/2429
 
