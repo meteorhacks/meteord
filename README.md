@@ -95,3 +95,11 @@ docker run -d \
     -p 8080:80 \
     meteorhacks/meteord:binbuild
 ~~~
+
+## Known Issues
+
+### Spiderable Not Wokring (But, have a fix)
+
+There are some issues when running spiderable inside a Docker container. For that, check this issue: https://github.com/meteor/meteor/issues/2429
+
+Fortunately, there is a fix. Simply use [`ongoworks:spiderable`](https://github.com/ongoworks/spiderable) instead the official package.
