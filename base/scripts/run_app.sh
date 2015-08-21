@@ -31,6 +31,14 @@ if [[ $REBULD_NPM_MODULES ]]; then
   fi
 fi
 
-export PORT=80
+if [[ $DELAY ]]; then
+  echo "Delaying startup for $DELAY seconds"
+  sleep $DELAY
+fi
+
+if [[ -z "$PORT" ]]; then 
+  export PORT=80
+fi
+
 echo "=> Starting meteor app on port:$PORT"
 node main.js
