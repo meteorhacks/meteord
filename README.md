@@ -80,6 +80,31 @@ docker run -d \
     meteorhacks/meteord:base
 ~~~
 
+#### 2.2 With Docker Compose
+
+docker-compose.yml
+~~~shell
+dashboard:
+  image: yourrepo/yourapp
+  ports:
+   - "80:3000"
+  links:
+   - mongo-dev:mongo-dev
+  environment:
+   - MONGO_URL=mongodb://mongo-dev/yourapp
+   - ROOT_URL=http://yourapp.com
+   - MAIL_URL=smtp://some.mailserver.com:25
+   - DELAY=30
+   - PORT=3000
+mongo-dev:
+  image: dfmedia/meteor-mongo:latest
+  ports:
+   - "27017:27017"
+~~~
+
+When using Docker Compose to start a Meteor container with a Mongo container as well, we need to wait for the database to start up before we try to start the Meteor app, else the container will fail to start. 
+
+This sample docker-compose.yml file starts up a container that has used meteorhacks/meterod as its base and a mongo container. It also passes along several variables to Meteor needed to start up, specifies the port number the container will listen on, and waits 30 seconds for the mongodb container to start up before starting up the Meteor container.
 
 #### Rebuilding Binary Modules
 
