@@ -108,7 +108,7 @@ This sample docker-compose.yml file starts up a container that has used meteorha
 
 #### Rebuilding Binary Modules
 
-Sometimes, you need to rebuild binary npm modules. If so, expose `REBULD_NPM_MODULES` environment variable. It will take couple of seconds to complete the rebuilding process.
+Sometimes, you need to rebuild binary npm modules. If so, expose `REBUILD_NPM_MODULES` environment variable. It will take couple of seconds to complete the rebuilding process.
 
 ~~~shell
 docker run -d \
@@ -116,7 +116,7 @@ docker run -d \
     -e MONGO_URL=mongodb://url \
     -e MONGO_OPLOG_URL=mongodb://oplog_url \
     -e BUNDLE_URL=http://mybundle_url_at_s3.tar.gz \
-    -e REBULD_NPM_MODULES=1 \
+    -e REBUILD_NPM_MODULES=1 \
     -p 8080:80 \
     meteorhacks/meteord:binbuild
 ~~~
