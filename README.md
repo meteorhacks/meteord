@@ -87,19 +87,16 @@ docker-compose.yml
 dashboard:
   image: yourrepo/yourapp
   ports:
-   - "80:3000"
+   - "80:80"
   links:
-   - mongo-dev:mongo-dev
+   - mongo
   environment:
-   - MONGO_URL=mongodb://mongo-dev/yourapp
+   - MONGO_URL=mongodb://mongo/yourapp
    - ROOT_URL=http://yourapp.com
    - MAIL_URL=smtp://some.mailserver.com:25
-   - DELAY=30
-   - PORT=3000
-mongo-dev:
-  image: dfmedia/meteor-mongo:latest
-  ports:
-   - "27017:27017"
+
+mongo:
+  image: mongo:latest
 ~~~
 
 When using Docker Compose to start a Meteor container with a Mongo container as well, we need to wait for the database to start up before we try to start the Meteor app, else the container will fail to start. 
