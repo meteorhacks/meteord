@@ -20,7 +20,7 @@ else
   exit 1
 fi
 
-if [[ $REBULD_NPM_MODULES ]]; then
+if [[ $REBUILD_NPM_MODULES ]]; then
   if [ -f /opt/meteord/rebuild_npm_modules.sh ]; then
     cd programs/server
     bash /opt/meteord/rebuild_npm_modules.sh
