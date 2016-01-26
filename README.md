@@ -1,5 +1,5 @@
 [![Circle CI](https://circleci.com/gh/meteorhacks/meteord/tree/master.svg?style=svg)](https://circleci.com/gh/meteorhacks/meteord/tree/master)
-## MeteorD - Docker Runtime for Meteor Apps 
+## MeteorD - Docker Runtime for Meteor Apps
 
 There are two main ways you can use Docker with Meteor apps. They are:
 
@@ -12,7 +12,7 @@ There are two main ways you can use Docker with Meteor apps. They are:
 
 With this method, your app will be converted into a Docker image. Then you can simply run that image.  
 
-For that, you can use `meteorhacks/meteord:onbuild` as your base image. Magically, that's only you've to do. Here's how to do it.
+For that, you can use `meteorhacks/meteord:onbuild` as your base image. Magically, that's only thing you have to do. Here's how to do it:
 
 Add following `Dockerfile` into the root of your app:
 
@@ -34,13 +34,13 @@ docker run -d \
     -e MONGO_URL=mongodb://url \
     -e MONGO_OPLOG_URL=mongodb://oplog_url \
     -p 8080:80 \
-    yourname/app 
+    yourname/app
 ~~~
 Then you can access your app from the port 8080 of the host system.
 
 #### Stop downloading Meteor each and every time (mostly in development)
 
-So, with the above method, MeteorD will download and install Meteor each and every time. That's bad specially in development. So, we've a solution for that. Simply use `meteorhacks/meteord:devbuild` as your base image.
+So, with the above method, MeteorD will download and install Meteor each and every time. That's bad especially in development. So, we've a solution for that. Simply use `meteorhacks/meteord:devbuild` as your base image.
 
 > WARNING: Don't use `meteorhacks/meteord:devbuild` for your final build. If you used it, your image will carry the Meteor distribution as well. As a result of that, you'll end up with an image with ~700 MB.
 
@@ -99,7 +99,7 @@ mongo:
   image: mongo:latest
 ~~~
 
-When using Docker Compose to start a Meteor container with a Mongo container as well, we need to wait for the database to start up before we try to start the Meteor app, else the container will fail to start. 
+When using Docker Compose to start a Meteor container with a Mongo container as well, we need to wait for the database to start up before we try to start the Meteor app, else the container will fail to start.
 
 This sample docker-compose.yml file starts up a container that has used meteorhacks/meterod as its base and a mongo container. It also passes along several variables to Meteor needed to start up, specifies the port number the container will listen on, and waits 30 seconds for the mongodb container to start up before starting up the Meteor container.
 
@@ -128,7 +128,7 @@ Fortunately, there is a fix. Simply use [`ongoworks:spiderable`](https://github.
 
 #### Container won't start on Joyent's Triton infrastructure
 
-There's currently (2015-07-18) an issue relating to how the command or entry point is parsed, so containers won't boot using the 'docker run' commands as above. 
+There's currently (2015-07-18) an issue relating to how the command or entry point is parsed, so containers won't boot using the 'docker run' commands as above.
 
 Instead, Joyent support has suggested the following workaround until their fix can be rolled out.
 
