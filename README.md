@@ -1,6 +1,8 @@
-[![Circle CI](https://circleci.com/gh/meteorhacks/meteord/tree/master.svg?style=svg)](https://circleci.com/gh/meteorhacks/meteord/tree/master)
+# This project is no longer maintained
 
-> ###Use [kadirahq/meteord](https://github.com/kadirahq/meteord) for meteor 1.4 and above. 
+**See [jshimko/meteor-launchpad](https://github.com/jshimko/meteor-launchpad) for a stable and maintained Docker base image for Meteor apps.**
+
+[![Circle CI](https://circleci.com/gh/meteorhacks/meteord/tree/master.svg?style=svg)](https://circleci.com/gh/meteorhacks/meteord/tree/master)
 
 ## MeteorD - Docker Runtime for Meteor Apps
 
